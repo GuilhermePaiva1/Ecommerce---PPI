@@ -19,9 +19,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
-from gerenciador.views import index
+from gerenciador.views import index, detalhe_produto, dashboard, listar_produtos
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',index,name='index'), 
-
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('', index, name='index'), 
+    path('detalhe_produto/<int:id_produto>/', detalhe_produto, name='detalhe_produto'),
+    path('dashboard/', dashboard, name='dashboard'),
+    path('/listar_produtos', listar_produtos, name='listar_produtos')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

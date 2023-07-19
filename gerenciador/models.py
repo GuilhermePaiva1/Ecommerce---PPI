@@ -8,6 +8,8 @@ class Marca(models.Model):
     def __str__(self):
         return self.nome
 
+
+
 class Produtos(models.Model):
     nome = models.CharField(max_length=150)
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
