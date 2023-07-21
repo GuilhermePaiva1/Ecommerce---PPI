@@ -15,7 +15,7 @@ class Produtos(models.Model):
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     informacoes = models.TextField(max_length=500)
     preco = models.FloatField()
-    img = models.ImageField(upload_to='imagens')
+    img = models.ImageField(upload_to='imagens',blank=True, null=True)
 
     def __str__(self):
         return self.nome

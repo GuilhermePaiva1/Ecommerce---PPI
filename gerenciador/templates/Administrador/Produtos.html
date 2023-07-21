@@ -1,9 +1,9 @@
 {% extends 'base_dashboard.html' %}
 
 {% block body %}
-  <h2> Lista de Alunos</h2>
+  <h2> Lista de Produtos</h2>
 
-  <a href="$" class="btn btn-success mb-3">Novo Cadastro</a>
+  <a href="{% url 'criar_produto' %}" class="btn btn-success mb-3">Novo Cadastro</a>
 
   <table class="table table-bordered">
     <thead>
@@ -19,14 +19,14 @@
     <tbody>
       {% for produto in produtos %}  
       <tr>
-        <td>{{ produto.img.url }}</td>
+        <td>{{ produto.img }}</td>
         <td>{{ produto.nome }}</td>
-        <td>{{ produto.Marca.nome }}</td>
+        <td>{{ produto.marca.nome }}</td>
         <td>{{ produto.preco }}</td>
-        <td>{{ produto.informacao }}</td>
+        <td>{{ produto.informacoes }}</td>
         <td>
-          <a href="#" class="btn btn-primary btn-sm">Editar</a>
-          <a href="#" class="btn btn-danger btn-sm">Remover</a>
+          <a href="{% url 'produto_editar' produto.id %}" class="btn btn-primary btn-sm">Editar</a>
+          <a href="{% url 'produto_remover' produto.id %}" class="btn btn-danger btn-sm">Remover</a>
         </td>
       </tr>
       {% endfor %}

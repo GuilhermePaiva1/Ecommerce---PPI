@@ -13,9 +13,11 @@
                 {% for produto in produtos %}
                 <div class="col mb-5">
                     <div class="card h-100">
-                        <!-- Product image-->
+                        {% if produto.img %}
                         <img class="card-img-top" src="{{ produto.img.url }}" alt="..." />
-                        <!-- Product details-->
+                        {% else %}
+                        <img class="card-img-top" src="{% static 'caminho/para/imagem_padrao.jpg' %}" alt="Imagem Padrão" />
+                        {% endif %}
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
