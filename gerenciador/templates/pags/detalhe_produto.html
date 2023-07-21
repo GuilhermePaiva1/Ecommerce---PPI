@@ -2,28 +2,85 @@
 {% load static %}
 
 {% block body %}
+<!-- Dentro do <head> -->
+<style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    
+        .navbar {
+            background-color: #f8f9fa;
+        }
+    
+        .navbar-brand {
+            font-weight: bold;
+            color: #333;
+        }
+    
+        .navbar-nav .nav-item .nav-link {
+            color: #333;
+        }
+    
+        .card-img {
+            height: 400px;
+        }
+    
+        .card-body {
+            padding: 20px;
+        }
+    
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+    
+        .card-text {
+            color: #555;
+            margin-bottom: 15px;
+        }
+    
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+        }
+    
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+</style>
+    
 <body>
-    <div class="container-fluid py-5">
+<!-- Dentro do <body> -->
+    <div class="container my-5">
         <div class="row">
-            <div class="col-12">
-                <div class="card mb-4 shadow">
-                    <div class="row no-gutters">
-                        <div class="col-lg-6">
-                            <img class="card-img" src="{{produto.img.url}}" alt="Imagem dO produto" style="object-fit: cover; height: 100%;">
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="card-body">
-                                <h2 class="card-title">{{ produto.nome }}</h2>
-                                <p class="card-text">{{ produto.marca }}</p>
-                                <p class="card-text"> R${{ produto.preco }}</p>
-                                <p class="card-text"> {{ produto.informacao }}</p>
-                            </div>
-                        </div>
+            <div class="col-lg-6">
+                <img style="min-width: 600px; max-width: 601px;" class="img-fluid" src="{{produto.img.url}}" alt="Imagem do produto">
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ produto.nome }}</h2>
+                        <p class="card-text">{{ produto.marca }}</p>
+                        <hr>
+                        <h4 class="card-text">R${{ produto.preco }}</h4>
+                        <p class="card-text">{{ produto.informacao }}</p>
+                        <button class="btn btn-primary">Adicionar ao Carrinho</button>
+                        <p class="card-text mt-3">Tamanho único: G</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    
+    
+    
+    
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
